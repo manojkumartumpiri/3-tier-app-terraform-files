@@ -5,21 +5,16 @@ on:
     branches:
       - main
   workflow_dispatch:
+
 permissions:
   id-token: write
   contents: read
-
 
 jobs:
   terraform:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Debug OIDC claims
-        uses: github/actions-oidc-debugger@main
-        with:
-          audience: sts.amazonaws.com
-
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -38,6 +33,5 @@ jobs:
       - name: Terraform Plan
         run: terraform plan -var-file=prod.tfvars
 
-      # Uncomment when you're ready to apply
       # - name: Terraform Apply
       #   run: terraform apply -var-file=prod.tfvars -auto-approve
