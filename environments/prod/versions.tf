@@ -7,10 +7,10 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "terraform-shopsphere-s3"
-    key    = "prod/terraform.tfstate"
-    region = "us-east-1"
-    encrypt = true
+    bucket       = "terraform-shopsphere-s3"
+    key          = "prod/terraform.tfstate"
+    region       = "us-east-1"
+    encrypt      = true
     use_lockfile = true
   }
 }
